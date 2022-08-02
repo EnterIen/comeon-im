@@ -1,9 +1,14 @@
 {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "1dde1245f9d2a3136070907f6b983547",
     "packages": [
         {
             "name": "workerman/gateway-worker",
             "version": "v3.0.22",
-            "version_normalized": "3.0.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/GatewayWorker.git",
@@ -24,9 +29,7 @@
             "require": {
                 "workerman/workerman": ">=3.5.0"
             },
-            "time": "2021-12-23T13:13:09+00:00",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "GatewayWorker\\": "./src"
@@ -55,12 +58,11 @@
                     "type": "patreon"
                 }
             ],
-            "install-path": "../workerman/gateway-worker"
+            "time": "2021-12-23T13:13:09+00:00"
         },
         {
             "name": "workerman/mysql",
             "version": "v1.0.6",
-            "version_normalized": "1.0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/mysql.git",
@@ -83,9 +85,7 @@
                 "ext-pdo_mysql": "*",
                 "php": ">=5.3"
             },
-            "time": "2019-08-02T10:43:09+00:00",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Workerman\\MySQL\\": "./src"
@@ -106,12 +106,11 @@
                 "issues": "https://github.com/walkor/mysql/issues",
                 "source": "https://github.com/walkor/mysql/tree/v1.0.6"
             },
-            "install-path": "../workerman/mysql"
+            "time": "2019-08-02T10:43:09+00:00"
         },
         {
             "name": "workerman/workerman",
             "version": "v4.0.41",
-            "version_normalized": "4.0.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/workerman.git",
@@ -135,9 +134,7 @@
             "suggest": {
                 "ext-event": "For better performance. "
             },
-            "time": "2022-07-19T08:05:44+00:00",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Workerman\\": "./"
@@ -178,9 +175,16 @@
                     "type": "patreon"
                 }
             ],
-            "install-path": "../workerman/workerman"
+            "time": "2022-07-19T08:05:44+00:00"
         }
     ],
-    "dev": true,
-    "dev-package-names": []
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

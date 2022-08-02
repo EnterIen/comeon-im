@@ -9,6 +9,7 @@ class ComposerStaticInit8f3411af7a7a58e545cca1dc386d93c8
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
+            'Workerman\\MySQL\\' => 16,
             'Workerman\\' => 10,
         ),
         'G' => 
@@ -18,6 +19,10 @@ class ComposerStaticInit8f3411af7a7a58e545cca1dc386d93c8
     );
 
     public static $prefixDirsPsr4 = array (
+        'Workerman\\MySQL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/workerman/mysql/src',
+        ),
         'Workerman\\' => 
         array (
             0 => __DIR__ . '/..' . '/workerman/workerman',
@@ -26,6 +31,10 @@ class ComposerStaticInit8f3411af7a7a58e545cca1dc386d93c8
         array (
             0 => __DIR__ . '/..' . '/workerman/gateway-worker/src',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/',
     );
 
     public static $classMap = array (
@@ -37,6 +46,7 @@ class ComposerStaticInit8f3411af7a7a58e545cca1dc386d93c8
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit8f3411af7a7a58e545cca1dc386d93c8::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit8f3411af7a7a58e545cca1dc386d93c8::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit8f3411af7a7a58e545cca1dc386d93c8::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInit8f3411af7a7a58e545cca1dc386d93c8::$classMap;
 
         }, null, ClassLoader::class);
