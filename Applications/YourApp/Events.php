@@ -38,7 +38,7 @@ class Events
      */
     public static function onWorkerStart($worker)
     {
-      self::$db = new \Workerman\MySQL\Connection('47.105.106.78', 3306, 'root', 'root', 'comeon','utf8mb4');
+      self::$db = new \Workerman\MySQL\Connection('120.77.98.154', 3306, 'root', 'root', 'comeon','utf8mb4');
     }
     /**
      * 当客户端连接时触发
@@ -56,9 +56,9 @@ class Events
 
     public static function onWebSocketConnect($client_id, $data)
     {    
-      // if (!isset($data['u_id']) || empty($data['u_id'])) {
-      //   Gateway::closeClient($client_id, 'fail');
-      // }
+      if (!isset($data['u_id']) || empty($data['u_id'])) {
+        Gateway::closeClient($client_id, 'fail');
+      }
 
       /**
        * 第一步
@@ -93,14 +93,16 @@ class Events
       /**
        * { 接收消息-持久化 }
        */
-      // $message = json_decode($message, true);
+      $message = json_decode($message, true);
 
       $insert = [
-        'talk_id' => 1,
-        'user_id' => 1,
-        'kefu_id' => 666,
-        'from'    => 1,
+        'talk_id' => $message['talk_id'],
+        'user_id' => $message['user_id'],
+        'kefu_id' => $message['kefu_id'],
+        'from'    => $message['from'],
         'content' => $message ? $message : '没有收到客户端消息'
+        'created_at' => date('Y-m-d H:i:s', now()),
+        'updated_at' => date('Y-m-d H:i:s', now()),
       ];
 
       $res = self::$db->insert('messages')->cols($insert)->query();
@@ -113,6 +115,13 @@ class Events
       // 向所有人发送 
       if ($res) {
         Gateway::sendToAll('已收到并持久化');
+
+        if ($message['from'] == 1) {
+          Gateway::sendToUid($message['kefu_id'], $message['content']);
+        } elseif ($message['from'] == 2) {
+          Gateway::sendToUid($message['user_id'], $message['content']);
+        }
+
       }
 
       Gateway::sendToAll('已收到未持久化');
